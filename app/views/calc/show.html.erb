@@ -1,0 +1,18 @@
+<h1 align="center">Посчитали</h1>
+<p align="center">Числа Армстронга:</p>
+<table border=1 align="center">
+  <tr>
+    <td>  Индекс </td>
+    <td>  Число  </td>
+  </tr>
+  <% @right_numbers.each do |number| %>
+    <tr>
+      <td align="center"> <%= number[0] %> </td>
+      <td align="center"> <%= number[1] %> </td>
+    </tr>
+  <% end %>
+</table>
+<p align="center">Количество чисел Армстронга: <%= @right_numbers.length %></p>
+<p align="center"><%= @msg %></p>
+<%= button_to 'Вернуться', root_path, method: :get, class: 'btn btn-primary' %>
+<%= button_to 'На базу', "/answers", method: :get, class: 'btn btn-primary' %>

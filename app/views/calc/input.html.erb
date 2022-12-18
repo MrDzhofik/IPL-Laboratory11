@@ -1,0 +1,9 @@
+<h1>Здрасьте</h1>
+<%= form_tag("/calc/show", :method => :get) do %>
+  <%= label_tag("Введите количество цифр в числе:") %>
+</br>
+<%= number_field_tag(:power, nil, in: 1..7, step:1)%>
+</br>
+<%= submit_tag("Yosh") %>
+<% end %>
+
