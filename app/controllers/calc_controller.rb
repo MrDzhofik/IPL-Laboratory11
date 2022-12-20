@@ -20,4 +20,16 @@ class CalcController < ApplicationController
     @note = Answer.new(numbers: params[:power].to_i)
   end
 
+  def json
+    @db = Answer.all
+    render json: @db
+  end
+
+  def xml
+    ans = Answer.all.map do |answer|
+      { number: answer.numbers, right: answer.right_numbers }
+    end
+    render xml: ans
+  end
+
 end
