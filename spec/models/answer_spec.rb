@@ -1,5 +1,12 @@
-require 'rails_helper'
+require_relative '../rails_helper'
 
 RSpec.describe Answer, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'If adding similar params' do
+    before do
+      Answer.create!(numbers: 3) if Answer.find_by(numbers: 3).nil?
+    end
+    it 'should be error ie(numbers is not unique' do
+      expect {Answer.create(id: 1)}.to raise_error(ActiveRecord::RecordNotUnique)
+    end
+  end
 end

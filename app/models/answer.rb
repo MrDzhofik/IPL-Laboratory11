@@ -36,4 +36,8 @@ class Answer < ApplicationRecord
     ActiveSupport::JSON.encode(calc)
   end
 
+  def count
+    Answer.count
+  end
+
 end

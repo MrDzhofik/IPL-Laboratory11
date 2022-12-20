@@ -16,7 +16,7 @@ RSpec.describe "Calcs", type: :request do
 
     it "returns right value" do
       get "/calc/show", params: { :power => "3"}
-      expect(assigns(:right_numbers)).to eq([153, 370, 371, 407])
+      expect(assigns(:right_numbers)).to eq([[0, 153], [1, 370], [2, 371], [3, 407]])
     end
 
     it "returns different values" do
@@ -24,7 +24,7 @@ RSpec.describe "Calcs", type: :request do
       first = :right_numbers
       get "/calc/show", params: { :power => "4"}
       second = :right_numbers
-      expect(assigns(first).not_to be eq(second))
+      expect(assigns(first)).not_to be eq(second)
     end
   end
 
